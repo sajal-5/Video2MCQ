@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Video to MCQ Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .lead {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-5">Video to MCQ Generator</h1>
+        <p class="lead">
+            The "Video to MCQ Generator" project was developed in Python using Google Colab. The project involves the
+            generation of multiple-choice questions (MCQs) from a given video. Here is a breakdown of the process:
+        </p>
+        <ol>
+            <li>
+                <strong>Video and Audio Extraction:</strong> The project begins by taking a video input and extracting
+                the audio from it using the <strong>ffmpeg</strong> library. FFmpeg is a cross-platform solution for
+                handling multimedia data, including audio and video.
+            </li>
+            <li>
+                <strong>Transcript Generation:</strong> The extracted audio is then sent to the <strong>AssemblyAI
+                    API</strong> to generate a transcript of the audio content. AssemblyAI is an automatic speech
+                recognition (ASR) API that converts spoken language into written text.
+            </li>
+            <li>
+                <strong>Text Summarization:</strong> To summarize the transcripted text, the project utilizes the
+                <strong>T5 tokenizer</strong> and the <strong>Hugging Face transformer library</strong>. T5 is a
+                text-to-text transfer transformer that can be used for various NLP tasks, including text summarization.
+            </li>
+            <li>
+                <strong>Keyword Extraction:</strong> <strong>PKE (Python Keyphrase Extraction)</strong> is employed to
+                extract important keywords and nouns from the summarized text. PKE is an open-source Python library for
+                keyphrase extraction from documents.
+            </li>
+            <li>
+                <strong>Question Generation:</strong> A pretrained <strong>T5 question generation model</strong>,
+                developed by Ramsri Goutham, is utilized to generate questions based on the extracted keywords. The
+                model is trained to generate questions from given contexts or statements.
+            </li>
+            <li>
+                <strong>Distractor Generation:</strong> The final step is to generate plausible distractor options for
+                each MCQ. The project employs the <strong>NormalizedLevenshtein library</strong> to identify words with
+                the highest similarity scores. The <strong>sense2vector library</strong> is used to filter out words
+                with similar senses. Additionally, the project utilizes the NLP concept of <strong>hypernyms and
+                    hyponyms</strong> to generate distractors for nouns. Hypernyms are words that represent a broader
+                category, while hyponyms are words that represent a narrower category within the same domain.
+            </li>
+        </ol>
+        <p>
+            Overall, the "Video to MCQ Generator" project demonstrates the integration of various tools and techniques,
+            including audio extraction, text summarization, keyword extraction, question generation, and distractor
+            generation. The project showcases the application of natural language processing (NLP) techniques to
+            automate the process of generating MCQs from video content.
+        </p>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
